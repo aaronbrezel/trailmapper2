@@ -4,6 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
+
+if (process.env.NODE_ENV !== 'production') { //Don't use env variables in a production environment
+  require('dotenv').config() //load environment variables from .env file
+  //.env now available by accessing 'process.env.[variable name]'
+}
+
+
+
 //handler code for specific routes (url paths) i.e. router.get()
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
