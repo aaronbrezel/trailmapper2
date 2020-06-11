@@ -8,10 +8,10 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-//PostgreSQL work
+//PostgreSQL work IN PROGRESS
 var pgp = require('pg-promise')
-var cn = '' //prepare connection information
-var db = pgp() //create new database instance
+// var cn = '' //prepare connection information
+// var db = pgp() //create new database instance
 
 
 var app = express();
@@ -50,4 +50,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app; //makes the app module exportable (so it can be called with 'require' in /bin/www)
-module.exports = db; //export datbase object for shared usage
+// module.exports = db; //export datbase object for shared usage
