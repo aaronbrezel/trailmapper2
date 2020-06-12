@@ -11,16 +11,17 @@ if (process.env.NODE_ENV !== 'production') { //Don't use env variables in a prod
   //.env now available by accessing 'process.env.[variable name]'
 }
 
+//Load db instance
+// db = require('./db/postgreSQL') //Old requirement for pg-promise
+db = require('./db/sequelize') //load and authenticate db connection with sequelize
+console.log(db)
 
 
 //handler code for specific routes (url paths) i.e. router.get()
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-//PostgreSQL work IN PROGRESS
-var pgp = require('pg-promise')
-// var cn = '' //prepare connection information
-// var db = pgp() //create new database instance
+
 
 
 var app = express();
@@ -59,4 +60,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app; //makes the app module exportable (so it can be called with 'require' in /bin/www)
-// module.exports = db; //export datbase object for shared usage
